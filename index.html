@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>index.html.html</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            line-height: 1.6;
+                            max-width: 800px;
+                            margin: 0 auto;
+                            padding: 40px;
+                            background-color: #f8f9fa;
+                            color: #333;
+                        }
+                        .content {
+                            background: white;
+                            padding: 30px;
+                            border-radius: 10px;
+                            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+                        }
+                        pre {
+                            white-space: pre-wrap;
+                            font-family: monospace;
+                            font-size: 16px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="content">
+                        <pre><!DOCTYPE html>
+<html lang="en" dir="ltr"> <!-- Default to English -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags (will be updated by JS based on language) -->
+    <title data-translate-key="pageTitle">Report Card Generator - Create & Download</title>
+    <meta name="description" data-translate-key="metaDescription" content="Free online report card generator for teachers and schools. Easily create, customize, and download student report cards in PNG format. Supports multiple languages.">
+    <meta name="keywords" content="report card generator, result card maker, student progress report, online report card, free report card template, result card, marksheet, رزلٹ کارڈ, multilingual report card, generador de boletas, générateur de bulletins">
+    <meta name="author" content="Gemini AI">
+    <link rel="canonical" href="YOUR_CANONICAL_URL_HERE"> <!-- Replace with your actual URL -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Roboto:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+Display:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans', 'Roboto', sans-serif;
+            background-color: #eef2f7;
+            transition: all 0.3s ease-in-out;
+        }
+        /* Language-specific font rules */
+        html[lang="ur"] body { font-family: 'Noto Nastaliq Urdu', sans-serif; }
+        html[lang="ar"] body { font-family: 'Noto Sans Arabic', sans-serif; }
+        html[lang="ja"] body { font-family: 'Noto Sans JP', sans-serif; }
+        html[lang="ko"] body { font-family: 'Noto Sans KR', sans-serif; }
+        html[lang="ru"] body, html[lang="hi"] body, html[lang="bn"] body { font-family: 'Noto Sans Display', sans-serif; }
+        
+        .report-card-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+        .report-card-preview {
+            border: 2px solid #3b82f6;
+            padding: 25px;
+            margin-top: 25px;
+            background-color: #f9fafb;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+        .table-bordered th, .table-bordered td {
+            border: 1px solid #93c5fd;
+            padding: 10px 12px;
+        }
+        .table-bordered {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table-header-bg {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .table-footer-bg {
+            background-color: #dbeafe;
+            font-weight: bold;
+        }
+        .institute-title {
+            color: #1e3a8a;
+        }
+        .student-info-box {
+            background-color: #eff6ff;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #bfdbfe;
+        }
+        .signature-area {
+            margin-top: 60px; /* Increased margin for more space */
+            padding-top: 20px;
+            border-top: 1px dashed #9ca3af;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .signature-box {
+            width: 45%;
+            min-width: 200px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .signature-line {
+            border-bottom: 1px solid #374151;
+            margin-top: 30px;
+            display: block;
+        }
+        .language-selector-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .language-selector-container label {
+            margin-right: 10px;
+            font-weight: 500;
+        }
+        .language-selector-container select {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            background-color: white;
+            font-weight: 500;
+            max-width: 250px;
+        }
+
+        /* Print specific styles */
+        @media print {
+            body { background-color: white !important; }
+            body * { visibility: hidden; }
+            .report-card-preview, .report-card-preview * { visibility: visible; }
+            .report-card-preview { position: absolute; left: 0; top: 0; width: 100%; border: none !important; margin: 0; padding: 0; box-shadow: none !important; }
+            .no-print { display: none !important; }
+            .table-header-bg { background-color: #3b82f6 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .table-footer-bg { background-color: #dbeafe !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .student-info-box { background-color: #eff6ff !important; border: 1px solid #bfdbfe !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .signature-area { border-top: 1px dashed #9ca3af !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .signature-line { border-bottom: 1px solid #374151 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lang-en"> <!-- Default body class to English -->
+    <div class="container mx-auto max-w-5xl report-card-container p-6">
+        <!-- Language Selector -->
+        <div class="language-selector-container no-print">
+            <label for="languageSelector" data-translate-key="selectLanguageLabel">Select Language:</label>
+            <select id="languageSelector" class="focus:ring-indigo-500 focus:border-indigo-500">
+                <!-- Language options will be dynamically populated by JavaScript -->
+            </select>
+        </div>
+
+        <h1 class="text-3xl md:text-4xl font-bold text-center institute-title mb-8 no-print" data-translate-key="mainHeading">Report Card Generator</h1>
+
+        <!-- Input Form -->
+        <div class="space-y-6 no-print">
+            <div>
+                <label for="instituteName" class="block text-lg font-medium text-gray-700" data-translate-key="instituteNameLabel">Institute Name:</label>
+                <input type="text" id="instituteName" name="instituteName" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg" data-translate-placeholder-key="instituteNamePlaceholder" placeholder="e.g., Global International School">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="studentName" class="block text-lg font-medium text-gray-700" data-translate-key="studentNameLabel">Student Name:</label>
+                    <input type="text" id="studentName" name="studentName" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg" data-translate-placeholder-key="studentNamePlaceholder" placeholder="e.g., John Doe">
+                </div>
+                <div>
+                    <label for="rollNumber" class="block text-lg font-medium text-gray-700" data-translate-key="rollNumberLabel">Roll Number:</label>
+                    <input type="text" id="rollNumber" name="rollNumber" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg" data-translate-placeholder-key="rollNumberPlaceholder" placeholder="e.g., 101">
+                </div>
+            </div>
+
+            <!-- Subjects Section -->
+            <div class="mt-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-3" data-translate-key="subjectsHeading">Subjects:</h2>
+                <div id="subjectsContainer" class="space-y-4">
+                    <!-- Subject rows will be added here by JavaScript -->
+                </div>
+                <button type="button" id="addSubjectBtn" class="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-lg font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                    </svg>
+                    <span data-translate-key="addSubjectBtn">Add New Subject</span>
+                </button>
+            </div>
+             <div class="mt-8 flex flex-col sm:flex-row justify-center sm:justify-end space-y-3 sm:space-y-0 sm:space-x-3 sm:space-x-reverse" dir="ltr">
+                <button type="button" id="previewBtn" class="w-full sm:w-auto inline-flex justify-center items-center px-6 py-3 border border-transparent text-lg font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <span data-translate-key="previewBtn">Preview Report Card</span>
+                </button>
+                <button type="button" id="downloadBtn" class="w-full sm:w-auto inline-flex justify-center items-center px-6 py-3 border border-gray-300 text-lg font-medium rounded-md shadow-sm text-gray-700 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    <span data-translate-key="downloadBtn">Download</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Report Card Preview Area -->
+        <div id="reportCardPreviewContainer" class="mt-10">
+            <h2 class="text-2xl font-bold text-center text-gray-600 mb-4 no-print" data-translate-key="previewHeading">Report Card Preview</h2>
+            <div id="reportCard" class="report-card-preview mx-auto max-w-3xl">
+                <div id="rcInstituteName" class="text-center text-3xl md:text-4xl font-bold mb-6 institute-title"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-lg">
+                    <div class="student-info-box">
+                        <strong data-translate-key="rcStudentNameLabel">Student Name:</strong> <span id="rcStudentName"></span>
+                    </div>
+                    <div class="student-info-box">
+                        <strong data-translate-key="rcRollNumberLabel">Roll No:</strong> <span id="rcRollNumber"></span>
+                    </div>
+                </div>
+                <table class="table-bordered w-full text-lg">
+                    <thead>
+                        <tr class="table-header-bg">
+                            <th class="px-4 py-2" data-translate-key="colSerialNumber">S.No.</th>
+                            <th class="px-4 py-2" data-translate-key="colSubjectName">Subject Name</th>
+                            <th class="px-4 py-2" data-translate-key="colObtainedMarks">Obtained Marks</th>
+                            <th class="px-4 py-2" data-translate-key="colTotalMarks">S.No. / Total Marks</th>
+                            <th class="px-4 py-2" data-translate-key="colPercentage">Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rcSubjectsTableBody"></tbody>
+                    <tfoot>
+                        <tr class="table-footer-bg">
+                            <td colspan="2" class="px-4 py-2 font-semibold text-right" data-translate-key="rcTotalMarksLabel">Grand Total:</td>
+                            <td id="rcTotalObtained" class="px-4 py-2 font-semibold">0</td>
+                            <td id="rcTotalMarks" class="px-4 py-2 font-semibold">0</td>
+                            <td id="rcOverallPercentage" class="px-4 py-2 font-semibold">0%</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <div class="signature-area">
+                    <div class="signature-box">
+                        <span class="signature-line"></span>
+                        <p class="mt-2 text-sm font-medium" data-translate-key="teacherSignature">Teacher's Signature</p>
+                    </div>
+                    <div class="signature-box">
+                        <span class="signature-line"></span>
+                        <p class="mt-2 text-sm font-medium" data-translate-key="headmasterSignature">Headmaster's Signature</p>
+                    </div>
+                </div>
+
+                <!-- The computer-generated note div has been removed -->
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let subjectCounter = 0;
+            let currentLanguage = 'en'; // Default language set to English
+
+            const availableLanguages = [
+                { code: 'en', name: 'English' },
+                { code: 'ur', name: 'اردو' },
+                { code: 'es', name: 'Español' },
+                { code: 'fr', name: 'Français' },
+                { code: 'ar', name: 'العربية' },
+                { code: 'de', name: 'Deutsch' },
+                { code: 'zh', name: '中文 (简体)' },
+                { code: 'hi', name: 'हिन्दी' },
+                { code: 'pt', name: 'Português' },
+                { code: 'it', name: 'Italiano' },
+                { code: 'ru', name: 'Русский' },
+                { code: 'ja', name: '日本語' },
+                { code: 'ko', name: '한국어' },
+                { code: 'bn', name: 'বাংলা' },
+                { code: 'pa', name: 'ਪੰਜਾਬੀ' },
+                { code: 'af', name: 'Afrikaans' },
+                { code: 'sq', name: 'Shqip' },
+                { code: 'am', name: 'አማርኛ' },
+                { code: 'hy', name: 'Հայերեն' },
+                { code: 'az', name: 'Azərbaycan' },
+                { code: 'eu', name: 'Euskara' },
+                { code: 'be', name: 'Беларуская' },
+                { code: 'bs', name: 'Bosanski' },
+                { code: 'bg', name: 'Български' },
+                { code: 'ca', name: 'Català' },
+                { code: 'hr', name: 'Hrvatski' },
+                { code: 'cs', name: 'Čeština' },
+                { code: 'da', name: 'Dansk' },
+                { code: 'nl', name: 'Nederlands' },
+                { code: 'eo', name: 'Esperanto' },
+                { code: 'et', name: 'Eesti' },
+                { code: 'fi', name: 'Suomi' },
+                { code: 'gl', name: 'Galego' },
+                { code: 'ka', name: 'ქართული' },
+                { code: 'el', name: 'Ελληνικά' },
+                { code: 'gu', name: 'ગુજરાતી' },
+                { code: 'hu', name: 'Magyar' },
+                { code: 'is', name: 'Íslenska' },
+                { code: 'id', name: 'Indonesia' },
+                { code: 'ga', name: 'Gaeilge' },
+                { code: 'kn', name: 'ಕನ್ನಡ' },
+                { code: 'kk', name: 'Қазақ' },
+                { code: 'km', name: 'ខ្មែរ' },
+                { code: 'lv', name: 'Latviešu' },
+                { code: 'lt', name: 'Lietuvių' },
+                { code: 'lb', name: 'Lëtzebuergesch' },
+                { code: 'mk', name: 'Македонски' },
+                { code: 'ms', name: 'Melayu' },
+                { code: 'ml', name: 'മലയാളം' },
+                { code: 'mt', name: 'Malti' },
+                { code: 'mr', name: 'मराठी' },
+                { code: 'mn', name: 'Монгол' },
+                { code: 'ne', name: 'नेपाली' },
+                { code: 'no', name: 'Norsk' },
+                { code: 'fa', name: 'فارسی' },
+                { code: 'pl', name: 'Polski' },
+                { code: 'ro', name: 'Română' },
+                { code: 'sr', name: 'Српски' },
+                { code: 'si', name: 'සිංහල' },
+                { code: 'sk', name: 'Slovenčina' },
+                { code: 'sl', name: 'Slovenščina' },
+                { code: 'sw', name: 'Kiswahili' },
+                { code: 'sv', name: 'Svenska' },
+                { code: 'ta', name: 'தமிழ்' },
+                { code: 'te', name: 'తెలుగు' },
+                { code: 'th', name: 'ไทย' },
+                { code: 'tr', name: 'Türkçe' },
+                { code: 'uk', name: 'Українська' },
+                { code: 'uz', name: 'O‘zbek' },
+                { code: 'vi', name: 'Tiếng Việt' },
+                { code: 'cy', name: 'Cymraeg' },
+                { code: 'xh', name: 'isiXhosa' },
+                { code: 'yi', name: 'ייִדיש' },
+                { code: 'zu', name: 'isiZulu' }
+            ];
+
+            const translations = {
+                en: {
+                    pageTitle: "Report Card Generator - Create & Download", metaDescription: "Free online report card generator for teachers and schools. Easily create, customize, and download student report cards in PNG format. Supports multiple languages.", selectLanguageLabel: "Select Language:", mainHeading: "Report Card Generator", instituteNameLabel: "Institute Name:", instituteNamePlaceholder: "e.g., Global International School", studentNameLabel: "Student Name:", studentNamePlaceholder: "e.g., John Doe", rollNumberLabel: "Roll Number:", rollNumberPlaceholder: "e.g., 101", subjectsHeading: "Subjects:", addSubjectBtn: "Add New Subject", removeSubjectBtn: "Remove Subject", previewBtn: "Preview Report Card", downloadBtn: "Download", previewHeading: "Report Card Preview", rcStudentNameLabel: "Student Name:", rcRollNumberLabel: "Roll No:", colSerialNumber: "S.No.", colSubjectName: "Subject Name", colObtainedMarks: "Obtained Marks", colTotalMarks: "S.No. / Total Marks", colPercentage: "Percentage", rcTotalMarksLabel: "Grand Total:", teacherSignature: "Teacher's Signature", headmasterSignature: "Headmaster's Signature", defaultInstituteName: "Institute Name Here", na: "N/A", subjectNamePlaceholder: "Subject Name", obtainedMarksPlaceholder: "Obtained", totalMarksPlaceholder: "Total", errorGeneratingImage: "Failed to generate report card image. Please check the console."
+                },
+                ur: {
+                    pageTitle: "رزلٹ کارڈ جنریٹر - بنائیں اور ڈاؤن لوڈ کریں", metaDescription: "اساتذہ اور اسکولوں کے لیے مفت آن لائن رزلٹ کارڈ جنریٹر۔ آسانی سے طلباء کے رزلٹ کارڈ بنائیں، اپنی مرضی کے مطابق بنائیں اور PNG فارمیٹ میں ڈاؤن لوڈ کریں۔ کثیر اللسانی معاونت کے ساتھ۔", selectLanguageLabel: "زبان منتخب کریں:", mainHeading: "رزلٹ کارڈ جنریٹر", instituteNameLabel: "ادارہ کا نام:", instituteNamePlaceholder: "مثال: گلوبل انٹرنیشنل سکول", studentNameLabel: "طالب علم کا نام:", studentNamePlaceholder: "مثال: احمد علی", rollNumberLabel: "رول نمبر:", rollNumberPlaceholder: "مثال: 101", subjectsHeading: "مضامین:", addSubjectBtn: "نیا مضمون شامل کریں", removeSubjectBtn: "مضمون ہٹائیں", previewBtn: "رزلٹ کارڈ دیکھیں", downloadBtn: "ڈاؤن لوڈ کریں", previewHeading: "رزلٹ کارڈ کا نمونہ", rcStudentNameLabel: "طالب علم کا نام:", rcRollNumberLabel: "رول نمبر:", colSerialNumber: "نمبر شمار", colSubjectName: "مضمون کا نام", colObtainedMarks: "حاصل کردہ نمبر", colTotalMarks: "نمبر شمار / کل نمبر", colPercentage: "فیصد", rcTotalMarksLabel: "کل مجموعہ:", teacherSignature: "استاد کے دستخط", headmasterSignature: "ہیڈ ماسٹر کے دستخط", defaultInstituteName: "ادارہ کا نام یہاں آئے گا", na: "N/A", subjectNamePlaceholder: "مضمون کا نام", obtainedMarksPlaceholder: "حاصل کردہ", totalMarksPlaceholder: "کل نمبر", errorGeneratingImage: "رزلٹ کارڈ کی تصویر بنانے میں ناکامی ہوئی۔ براہ کرم کنسول چیک کریں۔"
+                },
+                es: { 
+                    pageTitle: "Generador de Boletas de Calificaciones - Crear y Descargar", selectLanguageLabel: "Seleccionar Idioma:", mainHeading: "Generador de Boletas de Calificaciones", instituteNameLabel: "Nombre del Instituto:", instituteNamePlaceholder: "Ej: Escuela Internacional Global", studentNameLabel: "Nombre del Estudiante:", studentNamePlaceholder: "Ej: Juan Pérez", rollNumberLabel: "Número de Matrícula:", rollNumberPlaceholder: "Ej: 101", subjectsHeading: "Asignaturas:", addSubjectBtn: "Añadir Nueva Asignatura", removeSubjectBtn: "Eliminar Asignatura", previewBtn: "Vista Previa de Boleta", downloadBtn: "Descargar", previewHeading: "Vista Previa de Boleta", rcStudentNameLabel: "Nombre del Estudiante:", rcRollNumberLabel: "Matrícula:", colSerialNumber: "Nº", colSubjectName: "Nombre de Asignatura", colObtainedMarks: "Calificación Obtenida", colTotalMarks: "Nº / Calificación Total", colPercentage: "Porcentaje", rcTotalMarksLabel: "Total General:", teacherSignature: "Firma del Profesor(a)", headmasterSignature: "Firma del Director(a)", defaultInstituteName: "Nombre del Instituto Aquí", na: "N/D", subjectNamePlaceholder: "Nombre de Asignatura", obtainedMarksPlaceholder: "Obtenida", totalMarksPlaceholder: "Total", errorGeneratingImage: "Error al generar la imagen de la boleta. Por favor, revise la consola."
+                },
+                fr: { 
+                    pageTitle: "Générateur de Bulletins Scolaires - Créer et Télécharger", selectLanguageLabel: "Choisir la langue:", mainHeading: "Générateur de Bulletins Scolaires", instituteNameLabel: "Nom de l'établissement:", studentNameLabel: "Nom de l'élève:", rollNumberLabel: "Numéro d'inscription:", subjectsHeading: "Matières:", addSubjectBtn: "Ajouter une matière", removeSubjectBtn: "Supprimer la matière", previewBtn: "Aperçu du bulletin", downloadBtn: "Télécharger", previewHeading: "Aperçu du bulletin", rcStudentNameLabel: "Nom de l'élève:", rcRollNumberLabel: "N° d'inscription:", colSerialNumber: "N°", colSubjectName: "Matière", colObtainedMarks: "Notes Obtenues", colTotalMarks: "N° / Total des points", colPercentage: "Pourcentage", rcTotalMarksLabel: "Total Général:", teacherSignature: "Signature de l'enseignant(e)", headmasterSignature: "Signature du directeur/de la directrice", defaultInstituteName: "Nom de l'établissement ici", na: "N/A", subjectNamePlaceholder: "Nom de la matière", obtainedMarksPlaceholder: "Obtenues", totalMarksPlaceholder: "Total", errorGeneratingImage: "Échec de la génération de l'image du bulletin. Veuillez vérifier la console."
+                },
+                ar: { 
+                    pageTitle: "منشئ بطاقات النتائج - إنشاء وتنزيل", selectLanguageLabel: "اختر اللغة:", mainHeading: "منشئ بطاقات النتائج", instituteNameLabel: "اسم المؤسسة:", studentNameLabel: "اسم الطالب:", rollNumberLabel: "رقم التسجيل:", subjectsHeading: "المواد:", addSubjectBtn: "إضافة مادة جديدة", removeSubjectBtn: "إزالة المادة", previewBtn: "معاينة البطاقة", downloadBtn: "تحميل", previewHeading: "معاينة بطاقة النتائج", rcStudentNameLabel: "اسم الطالب:", rcRollNumberLabel: "رقم التسجيل:", colSerialNumber: "م.", colSubjectName: "اسم المادة", colObtainedMarks: "الدرجة المحصلة", colTotalMarks: "م. / الدرجة الكلية", colPercentage: "النسبة المئوية", rcTotalMarksLabel: "المجموع الكلي:", teacherSignature: "توقيع المعلم", headmasterSignature: "توقيع المدير", defaultInstituteName: "اسم المؤسسة هنا", na: "غير متوفر", subjectNamePlaceholder: "اسم المادة", obtainedMarksPlaceholder: "المحصلة", totalMarksPlaceholder: "الكلية", errorGeneratingImage: "فشل في إنشاء صورة بطاقة النتائج. يرجى التحقق من وحدة التحكم."
+                },
+                de: { 
+                    pageTitle: "Zeugnisgenerator - Erstellen & Herunterladen", selectLanguageLabel: "Sprache auswählen:", mainHeading: "Zeugnisgenerator", instituteNameLabel: "Name des Instituts:", studentNameLabel: "Name des Schülers/der Schülerin:", rollNumberLabel: "Rollennummer:", subjectsHeading: "Fächer:", addSubjectBtn: "Neues Fach hinzufügen", removeSubjectBtn: "Fach entfernen", previewBtn: "Zeugnisvorschau", downloadBtn: "Herunterladen", previewHeading: "Zeugnisvorschau", rcStudentNameLabel: "Name des Schülers/der Schülerin:", rcRollNumberLabel: "Rollennr.:", colSerialNumber: "Nr.", colSubjectName: "Fachname", colObtainedMarks: "Erhaltene Noten", colTotalMarks: "Nr. / Gesamtpunktzahl", colPercentage: "Prozentsatz", rcTotalMarksLabel: "Gesamtsumme:", teacherSignature: "Unterschrift des Lehrers/der Lehrerin", headmasterSignature: "Unterschrift des Schulleiters/der Schulleiterin", defaultInstituteName: "Name des Instituts hier", na: "N/A", subjectNamePlaceholder: "Fachname", obtainedMarksPlaceholder: "Erhalten", totalMarksPlaceholder: "Gesamt", errorGeneratingImage: "Fehler beim Erstellen des Zeugnisbildes. Bitte Konsole überprüfen."
+                },
+                zh: { 
+                    pageTitle: "成绩单生成器 - 创建和下载", selectLanguageLabel: "选择语言:", mainHeading: "成绩单生成器", instituteNameLabel: "学校名称:", studentNameLabel: "学生姓名:", rollNumberLabel: "学号:", subjectsHeading: "科目:", addSubjectBtn: "添加新科目", removeSubjectBtn: "删除科目", previewBtn: "预览成绩单", downloadBtn: "下载", previewHeading: "成绩单预览", rcStudentNameLabel: "学生姓名:", rcRollNumberLabel: "学号:", colSerialNumber: "序号", colSubjectName: "科目名称", colObtainedMarks: "得分", colTotalMarks: "序号 / 总分", colPercentage: "百分比", rcTotalMarksLabel: "总计:", teacherSignature: "教师签名", headmasterSignature: "校长签名", defaultInstituteName: "学校名称", na: "无", subjectNamePlaceholder: "科目名称", obtainedMarksPlaceholder: "得分", totalMarksPlaceholder: "总分", errorGeneratingImage: "生成成绩单图片失败，请检查控制台。"
+                },
+                hi: { 
+                    pageTitle: "रिपोर्ट कार्ड जेनरेटर - बनाएं और डाउनलोड करें", selectLanguageLabel: "भाषा चुनें:", mainHeading: "रिपोर्ट कार्ड जेनरेटर", instituteNameLabel: "संस्थान का नाम:", studentNameLabel: "छात्र का नाम:", rollNumberLabel: "रोल नंबर:", subjectsHeading: "विषय:", addSubjectBtn: "नया विषय जोड़ें", removeSubjectBtn: "विषय हटाएं", previewBtn: "रिपोर्ट कार्ड का पूर्वावलोकन करें", downloadBtn: "डाउनलोड करें", previewHeading: "रिपोर्ट कार्ड पूर्वावलोकन", rcStudentNameLabel: "छात्र का नाम:", rcRollNumberLabel: "रोल नंबर:", colSerialNumber: "क्र.सं.", colSubjectName: "विषय का नाम", colObtainedMarks: "प्राप्त अंक", colTotalMarks: "क्र.सं. / कुल अंक", colPercentage: "प्रतिशत", rcTotalMarksLabel: "कुल योग:", teacherSignature: "शिक्षक के हस्ताक्षर", headmasterSignature: "प्रधानाध्यापक के हस्ताक्षर", defaultInstituteName: "संस्थान का नाम यहाँ", na: "लागू नहीं", subjectNamePlaceholder: "विषय का नाम", obtainedMarksPlaceholder: "प्राप्त", totalMarksPlaceholder: "कुल", errorGeneratingImage: "रिपोर्ट कार्ड छवि बनाने में विफल। कृपया कंसोल जांचें।"
+                },
+                pt: {
+                    pageTitle: "Gerador de Boletins - Criar e Baixar", selectLanguageLabel: "Selecionar Idioma:", mainHeading: "Gerador de Boletins", instituteNameLabel: "Nome da Instituição:", studentNameLabel: "Nome do Aluno(a):", rollNumberLabel: "Número de Matrícula:", subjectsHeading: "Disciplinas:", addSubjectBtn: "Adicionar Nova Disciplina", removeSubjectBtn: "Remover Disciplina", previewBtn: "Pré-visualizar Boletim", downloadBtn: "Baixar", previewHeading: "Pré-visualização do Boletim", rcStudentNameLabel: "Nome do Aluno(a):", rcRollNumberLabel: "Matrícula:", colSerialNumber: "Nº", colSubjectName: "Nome da Disciplina", colObtainedMarks: "Notas Obtidas", colTotalMarks: "Nº / Total de Pontos", colPercentage: "Percentagem", rcTotalMarksLabel: "Total Geral:", teacherSignature: "Assinatura do Professor(a)", headmasterSignature: "Assinatura do Diretor(a)", defaultInstituteName: "Nome da Instituição Aqui", na: "N/D", subjectNamePlaceholder: "Nome da Disciplina", obtainedMarksPlaceholder: "Obtidas", totalMarksPlaceholder: "Total", errorGeneratingImage: "Falha ao gerar imagem do boletim. Verifique o console."
+                },
+                it: {
+                    pageTitle: "Generatore Pagelle - Crea e Scarica", selectLanguageLabel: "Seleziona Lingua:", mainHeading: "Generatore Pagelle", instituteNameLabel: "Nome Istituto:", studentNameLabel: "Nome Studente:", rollNumberLabel: "Numero Matricola:", subjectsHeading: "Materie:", addSubjectBtn: "Aggiungi Nuova Materia", removeSubjectBtn: "Rimuovi Materia", previewBtn: "Anteprima Pagella", downloadBtn: "Scarica", previewHeading: "Anteprima Pagella", rcStudentNameLabel: "Nome Studente:", rcRollNumberLabel: "Matricola:", colSerialNumber: "N.", colSubjectName: "Nome Materia", colObtainedMarks: "Voti Ottenuti", colTotalMarks: "N. / Punteggio Totale", colPercentage: "Percentuale", rcTotalMarksLabel: "Totale Generale:", teacherSignature: "Firma Insegnante", headmasterSignature: "Firma Preside", defaultInstituteName: "Nome Istituto Qui", na: "N/D", subjectNamePlaceholder: "Nome Materia", obtainedMarksPlaceholder: "Ottenuti", totalMarksPlaceholder: "Totale", errorGeneratingImage: "Errore durante la generazione dell'immagine della pagella. Controllare la console."
+                },
+                ru: {
+                    pageTitle: "Генератор Табелей - Создать и Скачать", selectLanguageLabel: "Выберите язык:", mainHeading: "Генератор Табелей Успеваемости", instituteNameLabel: "Название Учреждения:", studentNameLabel: "Имя Учащегося:", rollNumberLabel: "Номер в Списке:", subjectsHeading: "Предметы:", addSubjectBtn: "Добавить Новый Предмет", removeSubjectBtn: "Удалить Предмет", previewBtn: "Предпросмотр Табеля", downloadBtn: "Скачать", previewHeading: "Предпросмотр Табеля", rcStudentNameLabel: "Имя Учащегося:", rcRollNumberLabel: "Номер:", colSerialNumber: "№", colSubjectName: "Название Предмета", colObtainedMarks: "Полученные Оценки", colTotalMarks: "№ / Макс. Балл", colPercentage: "Процент", rcTotalMarksLabel: "Общий Итог:", teacherSignature: "Подпись Учителя", headmasterSignature: "Подпись Директора", defaultInstituteName: "Название Учреждения Здесь", na: "Н/Д", subjectNamePlaceholder: "Название Предмета", obtainedMarksPlaceholder: "Получено", totalMarksPlaceholder: "Всего", errorGeneratingImage: "Ошибка при создании изображения табеля. Проверьте консоль."
+                },
+                ja: {
+                    pageTitle: "成績表ジェネレーター - 作成とダウンロード", selectLanguageLabel: "言語を選択:", mainHeading: "成績表ジェネレーター", instituteNameLabel: "学校名:", studentNameLabel: "生徒名:", rollNumberLabel: "学籍番号:", subjectsHeading: "科目:", addSubjectBtn: "新しい科目を追加", removeSubjectBtn: "科目を削除", previewBtn: "成績表をプレビュー", downloadBtn: "ダウンロード", previewHeading: "成績表プレビュー", rcStudentNameLabel: "生徒名:", rcRollNumberLabel: "学籍番号:", colSerialNumber: "番号", colSubjectName: "科目名", colObtainedMarks: "取得点", colTotalMarks: "番号 / 満点", colPercentage: "得点率", rcTotalMarksLabel: "合計:", teacherSignature: "教師の署名", headmasterSignature: "校長の署名", defaultInstituteName: "学校名を入力", na: "該当なし", subjectNamePlaceholder: "科目名", obtainedMarksPlaceholder: "取得点", totalMarksPlaceholder: "満点", errorGeneratingImage: "成績表画像の生成に失敗しました。コンソールを確認してください。"
+                },
+                ko: {
+                    pageTitle: "성적표 생성기 - 만들기 및 다운로드", selectLanguageLabel: "언어 선택:", mainHeading: "성적표 생성기", instituteNameLabel: "기관명:", studentNameLabel: "학생 이름:", rollNumberLabel: "학번:", subjectsHeading: "과목:", addSubjectBtn: "새 과목 추가", removeSubjectBtn: "과목 삭제", previewBtn: "성적표 미리보기", downloadBtn: "다운로드", previewHeading: "성적표 미리보기", rcStudentNameLabel: "학생 이름:", rcRollNumberLabel: "학번:", colSerialNumber: "번호", colSubjectName: "과목명", colObtainedMarks: "받은 점수", colTotalMarks: "번호 / 총점", colPercentage: "백분율", rcTotalMarksLabel: "총계:", teacherSignature: "교사 서명", headmasterSignature: "교장 서명", defaultInstituteName: "기관명 입력", na: "해당 없음", subjectNamePlaceholder: "과목명", obtainedMarksPlaceholder: "받은 점수", totalMarksPlaceholder: "총점", errorGeneratingImage: "성적표 이미지 생성에 실패했습니다. 콘솔을 확인하십시오."
+                }
+            };
+            
+            function populateLanguageDropdown() {
+                const selector = document.getElementById('languageSelector');
+                availableLanguages.forEach(lang => {
+                    const option = document.createElement('option');
+                    option.value = lang.code;
+                    option.textContent = lang.name;
+                    selector.appendChild(option);
+                });
+            }
+
+            function setLanguage(lang) {
+                if (!availableLanguages.some(l => l.code === lang)) {
+                    lang = 'en'; // Fallback if the lang code is invalid
+                }
+                currentLanguage = lang;
+                document.documentElement.lang = lang;
+                document.documentElement.dir = (lang === 'ur' || lang === 'ar' || lang === 'fa' || lang === 'yi') ? 'rtl' : 'ltr';
+                
+                const allLangCodes = availableLanguages.map(l => l.code);
+                allLangCodes.forEach(code => document.body.classList.remove(`lang-${code}`));
+                document.body.classList.add(`lang-${lang}`);
+
+                const currentTranslationSet = translations[lang] || translations['en'];
+
+                document.querySelectorAll('[data-translate-key]').forEach(el => {
+                    const key = el.getAttribute('data-translate-key');
+                    el.textContent = currentTranslationSet[key] || translations['en'][key] || `Missing: ${key}`;
+                });
+                document.querySelectorAll('[data-translate-placeholder-key]').forEach(el => {
+                    const key = el.getAttribute('data-translate-placeholder-key');
+                    el.placeholder = currentTranslationSet[key] || translations['en'][key] || `Missing: ${key}`;
+                });
+                
+                document.getElementById('languageSelector').value = lang;
+                
+                updateSubjectInputPlaceholders();
+                updateReportCardPreview();
+            }
+
+            function updateSubjectInputPlaceholders() {
+                const lang = currentLanguage;
+                const currentTranslationSet = translations[lang] || translations['en'];
+                document.querySelectorAll('#subjectsContainer .subject-row').forEach(row => {
+                    row.querySelector('input[name^="subjectName"]').placeholder = currentTranslationSet.subjectNamePlaceholder || translations['en'].subjectNamePlaceholder;
+                    row.querySelector('input[name^="obtainedMarks"]').placeholder = currentTranslationSet.obtainedMarksPlaceholder || translations['en'].obtainedMarksPlaceholder;
+                    row.querySelector('input[name^="totalMarks"]').placeholder = currentTranslationSet.totalMarksPlaceholder || translations['en'].totalMarksPlaceholder;
+                    row.querySelector('.remove-subject-btn').textContent = currentTranslationSet.removeSubjectBtn || translations['en'].removeSubjectBtn;
+                });
+            }
+
+            function addSubjectRow(subjectName = "", obtainedMarks = "", totalMarks = "") {
+                subjectCounter++;
+                const subjectsContainer = document.getElementById('subjectsContainer');
+                const subjectRow = document.createElement('div');
+                subjectRow.classList.add('grid', 'grid-cols-1', 'md:grid-cols-9', 'gap-2', 'items-center', 'subject-row');
+                subjectRow.setAttribute('data-id', subjectCounter);
+                const lang = currentLanguage;
+                const currentTranslationSet = translations[lang] || translations['en'];
+
+                subjectRow.innerHTML = `
+                    <span class="md:col-span-1 text-lg text-gray-700 text-center">${subjectCounter}.</span>
+                    <input type="text" name="subjectName${subjectCounter}" value="${subjectName}" class="md:col-span-3 mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="${currentTranslationSet.subjectNamePlaceholder}">
+                    <input type="number" name="obtainedMarks${subjectCounter}" value="${obtainedMarks}" class="md:col-span-1 mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="${currentTranslationSet.obtainedMarksPlaceholder}">
+                    <input type="number" name="totalMarks${subjectCounter}" value="${totalMarks}" class="md:col-span-1 mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="${currentTranslationSet.totalMarksPlaceholder}">
+                    <button type="button" class="md:col-span-3 mt-1 py-2 px-3 bg-red-600 text-white rounded-md hover:bg-red-700 text-sm remove-subject-btn">${currentTranslationSet.removeSubjectBtn}</button>
+                `;
+                subjectsContainer.appendChild(subjectRow);
+
+                subjectRow.querySelector('.remove-subject-btn').addEventListener('click', function() {
+                    subjectRow.remove();
+                    updateSubjectSerialNumbers();
+                    updateReportCardPreview();
+                });
+            }
+            
+            function updateSubjectSerialNumbers() {
+                const subjectRows = document.querySelectorAll('#subjectsContainer .subject-row');
+                subjectRows.forEach((row, index) => {
+                    row.querySelector('span').textContent = `${index + 1}.`;
+                });
+                subjectCounter = subjectRows.length;
+            }
+
+            function updateReportCardPreview() {
+                const lang = currentLanguage;
+                const currentTranslationSet = translations[lang] || translations['en'];
+
+                document.getElementById('rcInstituteName').textContent = document.getElementById('instituteName').value || currentTranslationSet.defaultInstituteName;
+                document.getElementById('rcStudentName').textContent = document.getElementById('studentName').value || currentTranslationSet.na;
+                document.getElementById('rcRollNumber').textContent = document.getElementById('rollNumber').value || currentTranslationSet.na;
+
+                const subjectsTableBody = document.getElementById('rcSubjectsTableBody');
+                subjectsTableBody.innerHTML = ''; 
+
+                let overallTotalObtained = 0;
+                let overallTotalMarks = 0;
+                let currentSerial = 0;
+
+                const subjectRows = document.querySelectorAll('#subjectsContainer .subject-row');
+                subjectRows.forEach(row => {
+                    currentSerial++;
+                    const subjectNameInput = row.querySelector(`input[name^="subjectName"]`);
+                    const obtainedMarksInput = row.querySelector(`input[name^="obtainedMarks"]`);
+                    const totalMarksInput = row.querySelector(`input[name^="totalMarks"]`);
+
+                    const subjectName = subjectNameInput ? subjectNameInput.value : currentTranslationSet.na;
+                    const obtainedMarks = obtainedMarksInput ? parseFloat(obtainedMarksInput.value) || 0 : 0;
+                    const totalMarks = totalMarksInput ? parseFloat(totalMarksInput.value) || 0 : 0;
+                    
+                    const percentage = totalMarks > 0 ? ((obtainedMarks / totalMarks) * 100).toFixed(1) : 0;
+
+                    overallTotalObtained += obtainedMarks;
+                    overallTotalMarks += totalMarks;
+
+                    const tr = document.createElement('tr');
+                    tr.classList.add(currentSerial % 2 === 0 ? 'bg-gray-50' : 'bg-white');
+                    
+                    const subjectNameCellAlignment = (lang === 'ur' || lang === 'ar' || lang === 'fa' || lang === 'yi') ? 'text-right' : 'text-left';
+                    const numericCellAlignment = 'text-center';
+
+                    tr.innerHTML = `
+                        <td class="px-4 py-2 ${numericCellAlignment}">${currentSerial}</td>
+                        <td class="px-4 py-2 ${subjectNameCellAlignment}">${subjectName}</td>
+                        <td class="px-4 py-2 ${numericCellAlignment}">${obtainedMarks}</td>
+                        <td class="px-4 py-2 ${numericCellAlignment}">${totalMarks}</td>
+                        <td class="px-4 py-2 ${numericCellAlignment}">${percentage}%</td>
+                    `;
+                    subjectsTableBody.appendChild(tr);
+                });
+                
+                document.getElementById('rcTotalObtained').textContent = overallTotalObtained;
+                document.getElementById('rcTotalMarks').textContent = overallTotalMarks;
+                const overallPercentage = overallTotalMarks > 0 ? ((overallTotalObtained / overallTotalMarks) * 100).toFixed(1) : 0;
+                document.getElementById('rcOverallPercentage').textContent = overallPercentage + '%';
+                
+                const totalMarksLabelCell = document.querySelector('[data-translate-key="rcTotalMarksLabel"]');
+                if (totalMarksLabelCell) {
+                    totalMarksLabelCell.classList.remove('text-right', 'text-left');
+                    totalMarksLabelCell.classList.add((lang === 'ur' || lang === 'ar' || lang === 'fa' || lang === 'yi') ? 'text-right' : 'text-left');
+                }
+            }
+            
+            // --- Initialization ---
+            populateLanguageDropdown();
+            
+            document.getElementById('languageSelector').addEventListener('change', (event) => setLanguage(event.target.value));
+            document.getElementById('addSubjectBtn').addEventListener('click', () => addSubjectRow());
+            document.getElementById('previewBtn').addEventListener('click', updateReportCardPreview);
+            ['instituteName', 'studentName', 'rollNumber'].forEach(id => {
+                document.getElementById(id).addEventListener('input', updateReportCardPreview);
+            });
+            document.getElementById('subjectsContainer').addEventListener('input', function(event) {
+                if (event.target.tagName === 'INPUT') {
+                    updateReportCardPreview();
+                }
+            });
+            document.getElementById('downloadBtn').addEventListener('click', function() {
+                updateReportCardPreview(); 
+                const reportCardElement = document.getElementById('reportCard');
+                const instituteNameValue = document.getElementById('instituteName').value || "Report";
+                const studentNameValue = document.getElementById('studentName').value || "Student";
+                const rollNumberValue = document.getElementById('rollNumber').value || "";
+                const fileName = `ReportCard_${instituteNameValue.replace(/[^a-zA-Z0-9_-\u0600-\u06FF\s]/g, '').replace(/\s+/g, '_')}_${studentNameValue.replace(/[^a-zA-Z0-9_-\u0600-\u06FF\s]/g, '').replace(/\s+/g, '_')}_${rollNumberValue}.png`;
+                const originalTransform = reportCardElement.style.transform;
+                const originalWidth = reportCardElement.style.width;
+                const originalBoxShadow = reportCardElement.style.boxShadow;
+                reportCardElement.style.width = '880px'; 
+                reportCardElement.style.transform = 'scale(1)'; 
+                reportCardElement.style.boxShadow = 'none'; 
+                html2canvas(reportCardElement, { 
+                    scale: 2.5, 
+                    useCORS: true,
+                    logging: true,
+                    backgroundColor: '#f9fafb',
+                    onclone: (clonedDocument) => {
+                        const clonedCard = clonedDocument.getElementById('reportCard');
+                        if (clonedCard) {
+                            clonedCard.style.boxShadow = 'none';
+                        }
+                    }
+                }).then(canvas => {
+                    reportCardElement.style.transform = originalTransform;
+                    reportCardElement.style.width = originalWidth;
+                    reportCardElement.style.boxShadow = originalBoxShadow;
+                    const image = canvas.toDataURL('image/png');
+                    const link = document.createElement('a');
+                    link.href = image;
+                    link.download = fileName;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }).catch(err => {
+                    console.error("Error generating report card image:", err);
+                    const lang = currentLanguage;
+                    const currentTranslationSet = translations[lang] || translations['en'];
+                    const errorMsgDiv = document.createElement('div');
+                    errorMsgDiv.textContent = currentTranslationSet.errorGeneratingImage;
+                    errorMsgDiv.style.cssText = 'color: red; text-align: center; padding: 10px; position: fixed; top: 10px; left: 50%; transform: translateX(-50%); background-color: white; border: 1px solid red; z-index: 1000; border-radius: 5px;';
+                    document.body.appendChild(errorMsgDiv);
+                    setTimeout(() => errorMsgDiv.remove(), 5000);
+                    reportCardElement.style.transform = originalTransform;
+                    reportCardElement.style.width = originalWidth;
+                    reportCardElement.style.boxShadow = originalBoxShadow;
+                });
+            });
+
+            addSubjectRow(); 
+            setLanguage(currentLanguage);
+        });
+    </script>
+</body>
+</html></pre>
+                    </div>
+                </body>
+                </html>
